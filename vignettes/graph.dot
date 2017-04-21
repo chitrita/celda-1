@@ -1,0 +1,51 @@
+
+Digraph fig1 {
+rankdir = LR; //order things from left to right
+
+//define alpha and beta as existing
+alpha [shape=circle,label=<&alpha;>];
+beta [shape=circle,label=<&beta;>];
+gamma [shape=circle,label=<&gamma;>];
+//not strictly nescessary but helps if you want to
+//assign them specific shapes or colours
+
+subgraph cluster_S
+{
+    label = "S"
+    psi [shape=circle,label=<&psi;>];
+  psi ->y;
+
+subgraph cluster_M 
+{
+    label = <M<sub><font point-size="8">s</font></sub>>
+
+ 
+    y [shape=circle];
+    subgraph cluster_N
+    {
+        label = <N<sub><font point-size="8">ms</font></sub>>
+        z [shape=circle];
+        x [shape=circle, style=filled]
+        z->x; 
+    }
+  y->z;
+
+}
+}
+alpha -> theta;
+beta -> phi;
+gamma ->psi;
+  subgraph cluster_L 
+  {
+      label ="L"
+      theta [shape=circle,label=<&theta;>];
+    theta -> z;
+  }
+  subgraph cluster_K
+  {
+      label = "K"
+      phi [shape=circle,label=<&phi;>];
+      phi->x;
+  }
+}
+
